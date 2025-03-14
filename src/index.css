@@ -1,0 +1,15 @@
+:root {
+  --bg-color: #0b0e12;
+  --main-text-color: #ffffff;
+  --secondary-text-color: #c4c4c466;
+  --bg-color-item: #101318;
+  --border-radius: 4px;
+  --live-bg-color: #43ad28;
+  --finished-bg-color: #eb0237;
+  --preparing-bg-color: #eb6402;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--main-text-color);
+  font-family: "Inter", sans-serif;
+}
