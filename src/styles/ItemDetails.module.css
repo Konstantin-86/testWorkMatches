@@ -1,0 +1,39 @@
+.wrap {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.teamList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color-item);
+
+}
+
+.userItem {
+    max-width: 286px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius);
+    gap: 8px;
+    padding: 14px 24px;
+    background-color: teal;
+}
+
+.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #fafafa;
+    font-size: 16px;
+    font-weight: 600;
+}
