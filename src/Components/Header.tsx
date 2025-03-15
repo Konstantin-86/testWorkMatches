@@ -1,12 +1,11 @@
 
-import logo from "../../public/logo.png";
-import refresh from "../../public/icons/refreshIcon.png";
-import errorIcon from "../../public/icons/errorIcon.png";
+import logo from "../assets/logo.png";
+import refresh from "../assets/icons/refreshIcon.png";
+import errorIcon from "../assets/icons/errorIcon.png";
 
 import styles from "../styles/Header.module.css";
 
 interface HeaderProps {
-    logo: string;
     error: boolean;
     loading: boolean;
     refreshButton: () => void;

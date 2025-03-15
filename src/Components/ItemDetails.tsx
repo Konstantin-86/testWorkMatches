@@ -1,6 +1,6 @@
 import styles from "../styles/ItemDetails.module.css"
 import { Team } from "../types";
-import userIcon from "../../public/icons/userIcon.png"
+import userIcon from "../assets/icons/userIcon.png"
 
 interface ItemDetailsProps {
     homeTeam: Team;

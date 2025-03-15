@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ApiResponse, Match } from "./types";
-import logo from "../public/logo.png";
 import styles from "./styles/App.module.css";
 import Header from "./Components/Header";
 import MatchList from "./Components/MatchList";
@@ -60,7 +59,6 @@ function App() {
       <div className={styles.wrap}>
         <div className={styles.container}>
           <Header
-            logo={logo}
             error={error}
             loading={loading}
             refreshButton={refreshButton}

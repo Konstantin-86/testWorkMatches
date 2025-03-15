@@ -1,6 +1,6 @@
 
 
-import teamIcon from "../../public/icons/teamIcon.png";
+import teamIcon from "../assets/icons/teamIcon.png";
 import { Match } from "../types";
 import ItemDetails from "./ItemDetails";
 import styles from "../styles/MatchList.module.css";
