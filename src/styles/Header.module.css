@@ -1,6 +1,5 @@
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-top: 42px;
     margin-bottom: 20px;
@@ -12,6 +11,46 @@
     align-items: center;
     gap: 10px;
 }
+
+.wrapSelected {
+    position: relative;
+    margin-left: 24px;
+    margin-right: auto;
+}
+
+.filterStatus {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: rgb(180, 181, 182);
+    border-radius: 4px;
+    background: rgb(11, 14, 18);
+    outline: none;
+    border: none;
+}
+
+.arrow {
+    position: absolute;
+    width: 12px;
+    height: 7px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.filterStatus:focus {
+    background: rgb(15, 19, 24);
+    color: rgb(255, 255, 255);
+}
+
 
 .buttonReset {
     background-color: #EB0237;
@@ -82,6 +121,10 @@
 }
 
 @media screen and (max-width: 480px) {
+    .filterStatus {
+        width: 100%;
+    }
+
     .leftSideHeader {
         flex-direction: column;
         gap: 14px;

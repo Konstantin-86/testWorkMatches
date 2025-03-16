@@ -25,14 +25,40 @@ function App() {
     ok: false,
     data: { matches: [] },
   });
+  const [filteredMatches, setFilteredMatches] = useState<ApiResponse>({
+    ok: false,
+    data: { matches: [] },
+  });;
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+
+  const handleSelectChange = (value: string) => {
+    switch (value) {
+      case "live":
+        const liveMatches = matchesData.data.matches.filter((match: Match) => match.status === "Ongoing");
+        setFilteredMatches({ ok: true, data: { matches: liveMatches } });
+        break;
+      case "finished":
+        const finishedMatches = matchesData.data.matches.filter((match: Match) => match.status === "Finished");
+        setFilteredMatches({ ok: true, data: { matches: finishedMatches } });
+        break;
+      case "preparing":
+        const preparingMatches = matchesData.data.matches.filter((match: Match) => match.status === "Scheduled");
+        setFilteredMatches({ ok: true, data: { matches: preparingMatches } });
+        break;
+      default:
+        setFilteredMatches({ ok: true, data: { matches: matchesData.data.matches } });
+        break;
+    }
+  }
+
 
   const fetchData = async () => {
     await axios
       .get(baseURL)
       .then((response) => {
         setMatchesData(response.data);
+        setFilteredMatches(response.data);
         if (response.data.ok) {
           setLoading(false);
           setError(false);
@@ -47,29 +73,27 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+
   const refreshButton = () => {
     setLoading(true);
     fetchData();
   }
-  console.log(matchesData);
-
 
   return (
     <>
-      <div className={styles.wrap}>
-        <div className={styles.container}>
-          <Header
-            error={error}
-            loading={loading}
-            refreshButton={refreshButton}
+      <div className={styles.container}>
+        <Header
+          error={error}
+          loading={loading}
+          refreshButton={refreshButton}
+          onSelectChange={handleSelectChange}
+        />
+        {!loading &&
+          <MatchList
+            matches={filteredMatches.data.matches}
+            getBackgroundColor={getBackgroundColor}
           />
-          {!loading &&
-            <MatchList
-              matches={matchesData.data.matches}
-              getBackgroundColor={getBackgroundColor}
-            />
-          }
-        </div>
+        }
       </div>
     </>
   );

@@ -5,14 +5,16 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-
+    margin-bottom: 32px;
 }
 
 .matchItem {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: var(--bg-color-item);
     border-radius: var(--border-radius);
+    padding: 16px 36px;
 }
 
 .item {
@@ -20,7 +22,8 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 16px 36px;
+    margin-right: 40px;
+
 }
 
 .homeTeam,
@@ -30,6 +33,8 @@
     align-items: center;
     gap: 14px;
 }
+
+
 
 .scoreWrap {
     display: flex;
@@ -50,6 +55,30 @@
     border-radius: var(--border-radius);
 }
 
+.detailsEnter {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.detailsEnterActive {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.detailsExit {
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.detailsExitActive {
+    opacity: 0;
+    max-height: 0;
+}
+
 @media screen and (max-width: 767px) {
     .matchItem {
         gap: 12px;
@@ -66,4 +95,165 @@
         height: 28px;
     }
 
+}
+
+
+.wrap {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 28px;
+    padding-inline: 12px;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+.hidden {
+    height: 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-inline: 12px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.teamList {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color-item);
+    flex-wrap: wrap;
+
+}
+
+.topStat {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.userItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius);
+    gap: 8px;
+    padding: 14px 24px;
+    background-color: teal;
+}
+
+.username {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fafafa;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.userKills {
+    text-wrap: nowrap;
+}
+
+.userKills,
+.bottomStat {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(250, 250, 250, 0.4);
+}
+
+.userKills span,
+.bottomStat span {
+    color: rgb(242, 246, 246);
+}
+
+.bottomStat {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-block: 14px;
+    background-color: teal;
+}
+
+@media screen and (max-width: 1600px) {
+    .topStat {
+        justify-content: center;
+    }
+
+    .userItem {
+        max-width: 286px;
+        width: auto;
+    }
+
+    .userItem {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .username {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .userItem {
+        flex-wrap: wrap;
+        padding: 7px 12px;
+        font-size: 14px;
+    }
+
+    .wrap {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .teamList {
+        max-width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 769px) {
+
+
+    .username {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .userItem p {
+        margin-right: 0;
+    }
+
+    .topStat {
+        flex-wrap: nowrap;
+    }
+
+    .wrap {
+        flex-wrap: wrap
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item {
+        margin-right: 4px;
+    }
+
+    .arrow {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 7px;
+    }
 }
