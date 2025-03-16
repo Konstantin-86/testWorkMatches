@@ -50,6 +50,7 @@ const MatchList: React.FC<MatchListProps> = ({ matches, getBackgroundColor }) =>
                                 {match.status}
                             </div>
                         </div>
+
                         <div className={styles.awayTeam}>
                             <img className={styles.teamIcon} src={teamIcon} alt="Иконка команды" />
                             {match.awayTeam.name}
@@ -79,7 +80,7 @@ const MatchList: React.FC<MatchListProps> = ({ matches, getBackgroundColor }) =>
                                 <p>Всего убийств:<span>{match.homeTeam.total_kills}</span></p>
                             </div>
                         </div>
-
+                        <p className={styles.vsText}>VS</p>
                         <div className={styles.teamList}>
                             <div className={styles.topStat}>
                                 {match.awayTeam.players.map((player) => (
